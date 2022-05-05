@@ -24,6 +24,7 @@ class Game {
     constructor(grid, rootElement) {
         this.grid = grid;
         if(!rootElement instanceof HTMLElement){
+            alert('It says only one time ya donut')
             throw new Error('Root Element must be an HTML Element!')
         }
         this.rootElement = rootElement;
