@@ -24,7 +24,6 @@ class Game {
     constructor(grid, rootElement) {
         this.grid = grid;
         if(!rootElement instanceof HTMLElement){
-            alert('It says only one time ya donut')
             throw new Error('Root Element must be an HTML Element!')
         }
         this.rootElement = rootElement;
@@ -32,6 +31,7 @@ class Game {
     //should only be called once to setup the frame
     initializeFrame(){
         if(this.rootElement.hasChildNodes()){
+            alert('It says only one time ya donut -.-')
             throw new Error('Non empty starting point specified')
         }
         this.rootElement.style.display = 'grid';
