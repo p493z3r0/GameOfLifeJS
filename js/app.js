@@ -3,7 +3,7 @@ import {Grid} from './classes/grid.js';
 window.onload = () => init();
 let GRID_WIDTH = 0;
 let GRID_HEIGHT = 0;
-
+let currentInterval;
 let game;
 function init(){
     document.getElementById('createButton').onclick = () => {
@@ -17,6 +17,21 @@ function init(){
 
     document.getElementById('simulateOne').onclick = () => {
         game.render(true);
+    }
+
+    document.getElementById('play').onclick = () => {
+        const button = document.getElementById('play')
+        if(button.innerText === 'Stop'){
+            window.clearInterval(currentInterval);
+            button.innerText = 'Start';
+            return;
+        }
+        button.innerText = "Stop";
+
+        currentInterval = setInterval(()=> {
+            game.render(true);
+        }, 1000)
+
     }
 }
 
